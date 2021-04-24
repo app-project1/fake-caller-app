@@ -31,7 +31,7 @@ A Fake Caller App creates fake calls that might be helpful in dangerous situatio
 * User can make a fake call to one contact and view "Calling" screen.
 * User can get fake responses during the call.
 * User can switch to an emergency activity that makes real call to emergency number.
-* User can receive fake phone coming.
+* User can schedule an incoming phone call.
 
 **Optional Nice-to-have Stories**
 
@@ -44,6 +44,9 @@ A Fake Caller App creates fake calls that might be helpful in dangerous situatio
 
 * Contact List (Stream)
    * User can view a list of contacts.
+* Contact Actions (Detail) (or a popup screen within contact list?)
+   * User can initiate a fake outgoing call.
+   * User can schedule an incoming call.
 * Outgoing Call Activity (Detail)
    * User can make a fake call to one contact and view "Calling" screen.
    * User can get fake responses during the call.
@@ -61,6 +64,8 @@ A Fake Caller App creates fake calls that might be helpful in dangerous situatio
 **Flow Navigation** (Screen to Screen)
 
 * Contact List
+   * Contact Actions
+* Contact Actions
    * Incoming Call
    * Outgoing Call
 * Incoming Call
@@ -78,8 +83,22 @@ A Fake Caller App creates fake calls that might be helpful in dangerous situatio
 ## Schema 
 [This section will be completed in Unit 9]
 ### Models
-[Add table of models]
+#### Contact
+
+   | Property      | Type     | Description |
+   | ------------- | -------- | ------------|
+   | name          | String   | contact name |
+   | image         | File     | initials of contact |
+   | audio         | File     | recorded audio "call" |
+   | duration      | Time     | length of audio call |
+
 ### Networking
-- [Add list of network requests by screen ]
+* Contact List
+  * (OPTIONAL) (Create/POST) Create a new contact
+  * (OPTIONAL) (Delete) Delete existing contact
+  * (OPTIONAL) (Update/PUT) Update contact info
+* Outgoing Call / Call View
+  * (Read/GET) Get duration, set timer, and end call after
+  * (Read/GET) Get audio file associated with contact name
 - [Create basic snippets for each Parse network request]
 - [OPTIONAL: List endpoints if using existing API such as Yelp]
