@@ -104,7 +104,7 @@ A Fake Caller App creates fake calls that might be helpful in dangerous situatio
     query.getInBackground("your_contact_info_id", new GetCallback<ParseObject>() {
       public void done(ParseObject ContactInfo, ParseException e) {
         if (e == null) {
-          // Now let's update it with some new data. In this case, only contactName and phoneNumber
+          // Update it with some new data. In this case, only contactName and phoneNumber
           // will get sent to Parse Server. 
           ContactInfo.put("contactName", NewName);
           ContactInfo.put("phoneNumber", NewNumber);
