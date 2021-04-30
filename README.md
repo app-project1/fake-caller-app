@@ -37,7 +37,6 @@ A Fake Caller App creates fake calls that might be helpful in dangerous situatio
 
 * User can add a list of contacts of their choices.
 * User can make multiple, customized fake calls to different contacts.
-* User can set time for each call.
 * User can even fake Facetime.
 
 ### 2. Screen Archetypes
