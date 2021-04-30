@@ -96,8 +96,7 @@ A Fake Caller App creates fake calls that might be helpful in dangerous situatio
   * (OPTIONAL) (Create/POST) Create a new contact
   * (OPTIONAL) (Delete) Delete existing contact
   * (OPTIONAL) (Update/PUT) Update contact info
-* Outgoing Call / Call View
-  * (Read/GET) Get audio file and duration, set timer, and end call after
+  * (Read/GET) Get contact info for all contacts
     ```swift
     // queryContacts() method?
     ParseQuery<Contact> query = ParseQuery.getQuery(Contact.class);
@@ -110,14 +109,31 @@ A Fake Caller App creates fake calls that might be helpful in dangerous situatio
                 Log.e(TAG, "Issue with getting contacts, e);
                 return;
             }
-            // error logging
-            for (Contact contact : contacts) {
-                Log.i(TAG, “Successfully retrieved contacts”);
-            }
+            Log.i(TAG, “Successfully retrieved contacts”);
             allContacts.addAll(contacts);
             adapter.notifyDataSetChanged();
         }
     });
     ```
+    
+* Outgoing Call / Call View
+  * (Read/GET) Get audio file and duration for specific contact, set timer, and end call after
+    ```swift
+    protected void queryContact(String contactName) {
+        ParseQuery<Contact> query = ParseQuery.getQuery(Contact.class);
+        query.whereEqualTo(“contactName”, name);
+        query.getFirstInBackground(new FindCallback<Contact>() {
+            @Override
+            public void done(Contact contact, ParseException e) {
+                if (e != null) {
+                    Log.e(TAG, "Issue with getting contact, e);
+                    return;
+                }
+                Log.i(TAG, “Successfully retrieved contact”);
+                // bind contact into to call screen somehow... (TBD)
+            }
+        });
+    }
+    ````
 
 - [OPTIONAL: List endpoints if using existing API such as Yelp]
