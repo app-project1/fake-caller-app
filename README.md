@@ -95,6 +95,9 @@ A Fake Caller App creates fake calls that might be helpful in dangerous situatio
 * Contact List
   * (OPTIONAL) (Create/POST) Create a new contact
   * (OPTIONAL) (Delete) Delete existing contact
+    ``` swift
+    ContactInfo.deleteInBackground();
+    ```
   * (OPTIONAL) (Update/PUT) Update contact info
     ```swift
     ParseQuery<ParseObject> query = ParseQuery.getQuery("ContactInfo");
