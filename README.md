@@ -81,7 +81,6 @@ A Fake Caller App creates fake calls that might be helpful in dangerous situatio
 ### [BONUS] Interactive Prototype
 
 ## Schema 
-[This section will be completed in Unit 9]
 ### Models
 #### Contact
 
@@ -98,7 +97,27 @@ A Fake Caller App creates fake calls that might be helpful in dangerous situatio
   * (OPTIONAL) (Delete) Delete existing contact
   * (OPTIONAL) (Update/PUT) Update contact info
 * Outgoing Call / Call View
-  * (Read/GET) Get duration, set timer, and end call after
-  * (Read/GET) Get audio file associated with contact name
-- [Create basic snippets for each Parse network request]
+  * (Read/GET) Get audio file and duration, set timer, and end call after
+    ```swift
+    // queryContacts() method?
+    ParseQuery<Contact> query = ParseQuery.getQuery(Contact.class);
+    query.include(Contact.KEY_CONTACT);
+    query.addAscendingOrder(Contact.KEY_CONTACT);
+    query.findInBackground(new FindCallback<Contact>() {
+        @Override
+        public void done(List<Contact> contacts, ParseException e) {
+            if (e != null) {
+                Log.e(TAG, "Issue with getting contacts, e);
+                return;
+            }
+            // error logging
+            for (Contact contact : contacts) {
+                Log.i(TAG, “Successfully retrieved contacts”);
+            }
+            allContacts.addAll(contacts);
+            adapter.notifyDataSetChanged();
+        }
+    });
+    ```
+
 - [OPTIONAL: List endpoints if using existing API such as Yelp]
