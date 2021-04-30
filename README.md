@@ -96,6 +96,21 @@ A Fake Caller App creates fake calls that might be helpful in dangerous situatio
   * (OPTIONAL) (Create/POST) Create a new contact
   * (OPTIONAL) (Delete) Delete existing contact
   * (OPTIONAL) (Update/PUT) Update contact info
+    ```swift
+    ParseQuery<ParseObject> query = ParseQuery.getQuery("ContactInfo");
+    // Retrieve the object by id
+    query.getInBackground("your_contact_info_id", new GetCallback<ParseObject>() {
+      public void done(ParseObject ContactInfo, ParseException e) {
+        if (e == null) {
+          // Now let's update it with some new data. In this case, only contactName and phoneNumber
+          // will get sent to Parse Server. 
+          ContactInfo.put("contactName", NewName);
+          ContactInfo.put("phoneNumber", NewNumber);
+          ContactInfo.saveInBackground();
+        }
+      }
+    });
+    ```
   * (Read/GET) Get contact info for all contacts
     ```swift
     // queryContacts() method?
