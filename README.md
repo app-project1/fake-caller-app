@@ -93,6 +93,19 @@ A Fake Caller App creates fake calls that might be helpful in dangerous situatio
 ### Networking
 * Contact List
   * (OPTIONAL) (Create/POST) Create a new contact
+     ``` swift
+     //Uses the ParseBackend to create a new contact
+     public void onCreate() {
+        super.onCreate();
+        ParseObject.registerSubclass(ContactInfo.class);
+        Parse.initialize(new Parse.Configuration.Builder(this)
+                .applicationId("1q59So2R8sdi1XIqOUWOgIpvU4zPgCPFnf5rzSY7")//placeholder id
+                .clientKey("oM0oGHh8TX2mLcQkH7UFChEaLSHQrbnQipKiiLB9")//placeholder clientKey
+                .server("https://parseapi.back4app.com")
+                .build()
+        );
+    }
+     ```
   * (OPTIONAL) (Delete) Delete existing contact
     ``` swift
     ContactInfo.deleteInBackground();
