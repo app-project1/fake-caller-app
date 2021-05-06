@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Fake Caller App</string>
+    <string name="Contacts">\@string</string>
 </resources>
