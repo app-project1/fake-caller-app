@@ -72,13 +72,6 @@ A Fake Caller App creates fake calls that might be helpful in dangerous situatio
 * Outgoing Calls
    * Contact List 
 
-## Wireframes
-<img src="https://github.com/app-project1/fake-caller-app/blob/main/App%20Wireframe.png" width=600>
-
-### [BONUS] Digital Wireframes & Mockups
-
-### [BONUS] Interactive Prototype
-
 ## Schema 
 ### Models
 #### Contact
@@ -165,5 +158,18 @@ A Fake Caller App creates fake calls that might be helpful in dangerous situatio
         });
     }
     ````
-
+    
 - [OPTIONAL: List endpoints if using existing API such as Yelp]
+
+## Wireframes
+<img src="https://github.com/app-project1/fake-caller-app/blob/main/App%20Wireframe.png" width=600>
+
+## Build Progress Walkthroughs
+### Sprint 1
+<img src="Week1.gif" width=250>
+
+### Sprint 2
+
+### Sprint 3
+
+### Sprint 4
