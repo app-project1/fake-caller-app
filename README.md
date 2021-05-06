@@ -27,16 +27,17 @@ A Fake Caller App creates fake calls that might be helpful in dangerous situatio
 
 **Required Must-have Stories**
 
--[x] User can view a list of contacts.
--[ ] User can make a fake call to one contact and view "Calling" screen.
--[ ] User can switch to an emergency activity that makes real call to emergency number.
--[ ] User can schedule an incoming phone call.
+- [x] User can view a list of contacts.
+- [ ] User can make a fake call to one contact and view "Calling" screen.
+- [ ] User can switch to an emergency activity that makes real call to emergency number.
+- [ ] User can schedule an incoming phone call.
 
 **Optional Nice-to-have Stories**
 
--[ ] User can add a list of contacts of their choice.
--[ ] User can make customized fake calls to different contacts.
--[ ] User can even fake Facetime.
+- [ ] User can add a list of contacts of their choice.
+- [ ] User can make customized fake calls to different contacts.
+- [ ] User can even fake Facetime.
+- [ ] User can use the search bar to find contacts.
 
 ### 2. Screen Archetypes
 
