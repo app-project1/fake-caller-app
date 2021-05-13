@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Outgoing">
+
+    <Button
+        android:id="@+id/mButton"
+        android:layout_width="48dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/round_button"
+        android:backgroundTint="#FFFFFF"
+        android:drawableTint="#FFFFFF"
+        android:translationX="50dp"
+        android:translationY="180dp"
+        android:translationZ="30dp"
+        app:icon="@android:drawable/stat_notify_call_mute"
+        app:iconTint="#FFFFFF" />
+
+    <Button
+        android:id="@+id/kButton"
+        android:layout_width="48dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/round_button"
+        android:backgroundTint="#FFFFFF"
+        android:drawableTint="#FFFFFF"
+        android:translationX="180dp"
+        android:translationY="180dp"
+        android:translationZ="30dp"
+        app:icon="@drawable/ic_baseline_dialpad_24"
+        app:iconTint="#FFFFFF" />
+
+    <Button
+        android:id="@+id/sButton"
+        android:layout_width="48dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/round_button"
+        android:backgroundTint="#FFFFFF"
+        android:drawableTint="#FFFFFF"
+        android:translationX="300dp"
+        android:translationY="180dp"
+        android:translationZ="30dp"
+        app:icon="@drawable/ic_baseline_speaker_phone_24"
+        app:iconTint="#FFFFFF" />
+
+    <Button
+        android:id="@+id/aButton"
+        android:layout_width="48dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/round_button"
+        android:backgroundTint="#FFFFFF"
+        android:drawableTint="#FFFFFF"
+        android:translationX="50dp"
+        android:translationY="300dp"
+        android:translationZ="30dp"
+        app:icon="@drawable/ic_baseline_add_ic_call_24"
+        app:iconTint="#FFFFFF" />
+
+
+    <Button
+        android:id="@+id/fButton"
+        android:layout_width="48dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/round_button"
+        android:backgroundTint="#FFFFFF"
+        android:drawableTint="#FFFFFF"
+        android:translationX="180dp"
+        android:translationY="300dp"
+        android:translationZ="30dp"
+        app:icon="@drawable/ic_baseline_video_call_24"
+        app:iconTint="#FFFFFF" />
+
+    <Button
+        android:id="@+id/cButton"
+        android:layout_width="48dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/round_button"
+        android:backgroundTint="#FFFFFF"
+        android:drawableTint="#FFFFFF"
+        android:translationX="300dp"
+        android:translationY="300dp"
+        android:translationZ="30dp"
+        app:icon="@drawable/ic_baseline_contacts_24"
+        app:iconTint="#FFFFFF" />
+
+    <Button
+        android:id="@+id/rButton"
+        android:layout_width="48dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/round_button"
+        android:backgroundTint="#FFFFFF"
+        android:drawableTint="#FFFFFF"
+        android:rotation="0"
+        android:rotationX="0"
+        android:rotationY="0"
+        android:translationX="180dp"
+        android:translationY="500dp"
+        android:translationZ="30dp"
+        app:icon="@drawable/ic_baseline_call_end_24"
+        app:iconTint="#FFFFFF"
+        app:strokeColor="#FFFFFF" />
+
+
+</RelativeLayout>
