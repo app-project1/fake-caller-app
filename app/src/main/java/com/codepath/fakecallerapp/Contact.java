@@ -20,8 +20,8 @@ public class Contact extends ParseObject {
         put(KEY_CONTACT_NAME, contactName);
     }
 
-    public Number getPhoneNumber() {
-        return getNumber(String.valueOf(KEY_PHONE_NUMBER));
+    public String getPhoneNumber() {
+        return String.valueOf(getNumber(KEY_PHONE_NUMBER));
     }
 
     public void setPhoneNumber(Number phoneNumber) {
