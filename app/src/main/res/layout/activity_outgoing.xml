@@ -1,106 +1,168 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Outgoing">
+    android:orientation="vertical"
+    tools:context=".OutgoingActivity">
 
-    <Button
-        android:id="@+id/mButton"
-        android:layout_width="48dp"
+    <TextView
+        android:id="@+id/tvName"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/round_button"
-        android:backgroundTint="#FFFFFF"
-        android:drawableTint="#FFFFFF"
-        android:translationX="50dp"
-        android:translationY="180dp"
-        android:translationZ="30dp"
-        app:icon="@android:drawable/stat_notify_call_mute"
-        app:iconTint="#FFFFFF" />
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:fontFamily="sans-serif-light"
+        android:textAlignment="center"
+        android:textSize="30dp"
+        tools:text="Contact Name" />
 
-    <Button
-        android:id="@+id/kButton"
-        android:layout_width="48dp"
+    <TextView
+        android:id="@+id/tvTime"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/round_button"
-        android:backgroundTint="#FFFFFF"
-        android:drawableTint="#FFFFFF"
-        android:translationX="180dp"
-        android:translationY="180dp"
-        android:translationZ="30dp"
-        app:icon="@drawable/ic_baseline_dialpad_24"
-        app:iconTint="#FFFFFF" />
+        android:fontFamily="sans-serif-light"
+        android:textAlignment="center"
+        android:textSize="20dp"
+        tools:text="calling..." />
 
-    <Button
-        android:id="@+id/sButton"
-        android:layout_width="48dp"
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/round_button"
-        android:backgroundTint="#FFFFFF"
-        android:drawableTint="#FFFFFF"
-        android:translationX="300dp"
-        android:translationY="180dp"
-        android:translationZ="30dp"
-        app:icon="@drawable/ic_baseline_speaker_phone_24"
-        app:iconTint="#FFFFFF" />
+        android:layout_marginTop="125dp">
 
-    <Button
-        android:id="@+id/aButton"
-        android:layout_width="48dp"
+        <Button
+            android:id="@+id/mButton"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="60dp"
+            android:background="@drawable/round_button"
+            android:backgroundTint="#FFFFFF"
+            android:drawableTint="#FFFFFF"
+            android:insetLeft="0dp"
+            android:insetTop="5dp"
+            android:insetRight="5dp"
+            android:insetBottom="5dp"
+            app:icon="@android:drawable/stat_notify_call_mute"
+            app:iconSize="30dp"
+            app:iconTint="#FFFFFF" />
+
+        <Button
+            android:id="@+id/kButton"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/round_button"
+            android:backgroundTint="#FFFFFF"
+            android:drawableTint="#FFFFFF"
+            android:insetLeft="0dp"
+            android:insetTop="5dp"
+            android:insetRight="5dp"
+            android:insetBottom="5dp"
+            app:icon="@drawable/ic_baseline_dialpad_24"
+            app:iconSize="30dp"
+            app:iconTint="#FFFFFF" />
+
+        <Button
+            android:id="@+id/sButton"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="60dp"
+            android:background="@drawable/round_button"
+            android:backgroundTint="#FFFFFF"
+            android:drawableTint="#FFFFFF"
+            android:insetLeft="0dp"
+            android:insetTop="5dp"
+            android:insetRight="5dp"
+            android:insetBottom="5dp"
+            app:icon="@drawable/ic_baseline_speaker_phone_24"
+            app:iconSize="30dp"
+            app:iconTint="#FFFFFF" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/round_button"
-        android:backgroundTint="#FFFFFF"
-        android:drawableTint="#FFFFFF"
-        android:translationX="50dp"
-        android:translationY="300dp"
-        android:translationZ="30dp"
-        app:icon="@drawable/ic_baseline_add_ic_call_24"
-        app:iconTint="#FFFFFF" />
+        android:layout_marginTop="50dp">
+
+        <Button
+            android:id="@+id/aButton"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="60dp"
+            android:background="@drawable/round_button"
+            android:backgroundTint="#FFFFFF"
+            android:drawableTint="#FFFFFF"
+            android:insetLeft="0dp"
+            android:insetTop="5dp"
+            android:insetRight="5dp"
+            android:insetBottom="5dp"
+            app:icon="@drawable/ic_baseline_add_ic_call_24"
+            app:iconSize="30dp"
+            app:iconTint="#FFFFFF" />
 
 
-    <Button
-        android:id="@+id/fButton"
-        android:layout_width="48dp"
-        android:layout_height="wrap_content"
-        android:background="@drawable/round_button"
-        android:backgroundTint="#FFFFFF"
-        android:drawableTint="#FFFFFF"
-        android:translationX="180dp"
-        android:translationY="300dp"
-        android:translationZ="30dp"
-        app:icon="@drawable/ic_baseline_video_call_24"
-        app:iconTint="#FFFFFF" />
+        <Button
+            android:id="@+id/fButton"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/round_button"
+            android:backgroundTint="#FFFFFF"
+            android:drawableTint="#FFFFFF"
+            android:insetLeft="0dp"
+            android:insetTop="5dp"
+            android:insetRight="5dp"
+            android:insetBottom="5dp"
+            app:icon="@drawable/ic_baseline_video_call_24"
+            app:iconSize="35dp"
+            app:iconTint="#FFFFFF" />
 
-    <Button
-        android:id="@+id/cButton"
-        android:layout_width="48dp"
-        android:layout_height="wrap_content"
-        android:background="@drawable/round_button"
-        android:backgroundTint="#FFFFFF"
-        android:drawableTint="#FFFFFF"
-        android:translationX="300dp"
-        android:translationY="300dp"
-        android:translationZ="30dp"
-        app:icon="@drawable/ic_baseline_contacts_24"
-        app:iconTint="#FFFFFF" />
+        <Button
+            android:id="@+id/cButton"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="60dp"
+            android:background="@drawable/round_button"
+            android:backgroundTint="#FFFFFF"
+            android:drawableTint="#FFFFFF"
+            android:insetLeft="0dp"
+            android:insetTop="5dp"
+            android:insetRight="5dp"
+            android:insetBottom="5dp"
+            app:icon="@drawable/ic_baseline_contacts_24"
+            app:iconSize="30dp"
+            app:iconTint="#FFFFFF" />
+    </RelativeLayout>
 
     <Button
         android:id="@+id/rButton"
-        android:layout_width="48dp"
-        android:layout_height="wrap_content"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="150dp"
         android:background="@drawable/round_button"
         android:backgroundTint="#FFFFFF"
         android:drawableTint="#FFFFFF"
-        android:rotation="0"
-        android:rotationX="0"
-        android:rotationY="0"
-        android:translationX="180dp"
-        android:translationY="500dp"
-        android:translationZ="30dp"
+        android:insetLeft="0dp"
+        android:insetTop="5dp"
+        android:insetRight="5dp"
+        android:insetBottom="5dp"
         app:icon="@drawable/ic_baseline_call_end_24"
+        app:iconSize="30dp"
         app:iconTint="#FFFFFF"
         app:strokeColor="#FFFFFF" />
 
-
-</RelativeLayout>
+</LinearLayout>

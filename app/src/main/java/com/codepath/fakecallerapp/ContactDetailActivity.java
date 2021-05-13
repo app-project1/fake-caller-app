@@ -1,6 +1,6 @@
 package com.codepath.fakecallerapp;
 
-import android.media.MediaPlayer;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -12,8 +12,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import org.parceler.Parcels;
 
-import java.io.IOException;
-
 /*
 This class is the detail activity that will show up when we click on each row in the contact list activity
 This class should hold information of the contact: contact name, phone number, option to make the call...
@@ -23,10 +21,12 @@ public class ContactDetailActivity extends AppCompatActivity {
     private TextView tvContactName;
     private TextView tvPhoneNum;
     private ImageView ivProfilePic;
-    private View actionView;
     private ImageButton btnCall;
     private ImageButton btnText;
-
+    /* I don't think the ActionView was necessary; it wasn't used for anything.  If we do
+       need it, though, feel free to add it back.
+       Also deleted view2 and actionView from the xml file: didn't affect anything.  -JL
+    */
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +36,6 @@ public class ContactDetailActivity extends AppCompatActivity {
         tvContactName = findViewById(R.id.tvContactName);
         tvPhoneNum = findViewById(R.id.tvPhoneNum);
         ivProfilePic = findViewById(R.id.ivProfilePic);
-        actionView = findViewById(R.id.actionView);
         btnCall = findViewById(R.id.btnCall);
         btnText = findViewById(R.id.btnText);
 
@@ -54,6 +53,11 @@ public class ContactDetailActivity extends AppCompatActivity {
         when I open the real phone app in android the profile pic is kinda a background with contact
         name appearing in front of the background, so I downloaded a default profile picture and set it
         in the activity_contactdetail.xml but somehow it doesn't show up)
+
+            Edit: The profile photo doesn't show up because it was set as a placeholder "hint",
+            so it wasn't supposed to show up.  I hardcoded the photo so we can see it, but we would
+            probably need to change it if we're getting real photos from the backend later.  -JL
+
         + button call: setOnClickListener (have not finished this part)
         1 optional is: text button - maybe leave this later
          */
@@ -62,32 +66,14 @@ public class ContactDetailActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Log.i(TAG, "onClick Call button");
-
-                // make the audio play on click the button
-                contact.getAudioFile();
+                Intent intent = new Intent(ContactDetailActivity.this, OutgoingActivity.class);
+                intent.putExtra("contact", contact);
+                startActivity(intent);
+                /*
+                 I moved playFile() to OutgoingActivity since we want to change screens before
+                 the call starts. -JL
+                 */
             }
         });
-
-
     }
-/*
-FOLLOW SOME CODE ONLINE BUT FAIL LOL FEEL FREE TO RECYCLE, CONTINUE WRITING ON IT OR DELETE IT
- */
-//    public void playFile(View v){
-//        MediaPlayer mp = new MediaPlayer();
-//        try {
-//            mp.setDataSource();
-//            mp.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
-//                @Override
-//                public void onPrepared(MediaPlayer mp) {
-//                    mp.start();
-//                }
-//            });
-//            mp.prepareAsync();
-//        } catch (IOException e){
-//            e.printStackTrace();
-//        }
-//
-//    }
-
 }

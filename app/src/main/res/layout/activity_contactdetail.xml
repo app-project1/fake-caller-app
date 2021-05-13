@@ -7,68 +7,77 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <View
-        android:id="@+id/view2"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@id/actionView"
-        android:layout_marginBottom="0dp" />
-
     <TextView
         android:id="@+id/tvContactName"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/ivProfilePic"
-        android:layout_marginTop="-32dp"
-        android:layout_marginBottom="0dp"
+        android:layout_below="@id/ivProfilePic"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        android:fontFamily="sans-serif-light"
+        android:padding="5dp"
         android:text="Contact Name"
+        android:textAlignment="center"
+        android:textColor="@color/black"
         android:textSize="30sp" />
 
     <ImageView
         android:id="@+id/ivProfilePic"
         android:layout_width="match_parent"
-        android:layout_height="384dp"
+        android:layout_height="250dp"
+        android:contentDescription="ProfilePicture"
+        android:padding="10dp"
+        app:srcCompat="@drawable/profilepic_default"
         tools:srcCompat="@drawable/profilepic_default" />
-
-    <view
-        android:id="@+id/actionView"
-        class="androidx.viewpager.widget.ViewPager"
-        android:layout_width="match_parent"
-        android:layout_height="51dp"
-        android:layout_below="@+id/ivProfilePic"
-        android:layout_marginTop="30dp"
-        android:background="#FFFFFF" />
 
     <ImageButton
         android:id="@+id/btnCall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/actionView"
-        android:layout_marginTop="0dp"
-        android:src="@drawable/ic_baseline_call_24"
-        android:textSize="12sp" />
+        android:layout_below="@id/tvContactName"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        android:backgroundTint="#81C784"
+        android:contentDescription="Call"
+        android:padding="10dp"
+        android:src="@drawable/ic_baseline_call_24" />
 
     <ImageButton
         android:id="@+id/btnText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/actionView"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="0dp"
-        android:layout_marginEnd="0dp"
+        android:layout_below="@id/tvContactName"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        android:backgroundTint="#81C784"
+        android:contentDescription="Message"
+        android:padding="10dp"
         android:src="@drawable/ic_baseline_message_24" />
 
     <TextView
         android:id="@+id/tvPhoneNum"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/actionView"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="0dp"
-        android:layout_marginEnd="0dp"
-        android:layout_toStartOf="@+id/btnText"
-        android:layout_toEndOf="@+id/btnCall"
-        android:text="Phone Number"
-        android:textSize="30sp" />
+        android:layout_below="@id/tvContactName"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_toLeftOf="@id/btnText"
+        android:layout_toRightOf="@id/btnCall"
+        android:fontFamily="sans-serif-light"
+        android:padding="5dp"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="25dp"
+        tools:text="###-###-####" />
 
 </RelativeLayout>

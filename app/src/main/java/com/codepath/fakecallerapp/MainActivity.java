@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.widget.SearchView;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -28,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView rvContacts;
     protected List<Contact> allContacts;
     protected ContactAdapter contactAdapter;
+    protected SearchView searchView;
 
     public MainActivity() {
         // Required empty public constructor
@@ -80,7 +82,32 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_options, menu);
+        searchView = (SearchView) menu.findItem(R.id.search_bar).getActionView();
+        // Set up search bar functionality
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return true;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                filter(newText);
+                return true;
+            }
+        });
         return true;
+    }
+
+    // filters contacts that match the search bar query
+    private void filter(String newText) {
+        List<Contact> filteredList = new ArrayList<>();
+        for (Contact contact : allContacts) {
+            if (contact.getContactName().toLowerCase().contains(newText.toLowerCase())) {
+                filteredList.add(contact);
+            }
+        }
+        contactAdapter.filterList(filteredList);
     }
 
     private void queryContacts() {

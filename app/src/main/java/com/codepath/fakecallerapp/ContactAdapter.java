@@ -6,8 +6,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -29,7 +27,7 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ViewHold
         this.contacts = contacts;
     }
 
-    //involves inflating a layout from XML and returning the holder
+    // Involves inflating a layout from XML and returning the holder
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -64,7 +62,13 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ViewHold
         notifyDataSetChanged();
     }
 
-    //Define view holder class
+    // only display filtered items when using search bar
+    public void filterList(List<Contact> filteredList) {
+        contacts = filteredList;
+        notifyDataSetChanged();
+    }
+
+    // Define view holder class
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         private TextView tvContact;
