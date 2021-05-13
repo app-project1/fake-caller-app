@@ -66,6 +66,7 @@ public class OutgoingActivity extends AppCompatActivity {
                 @Override
                 public void onFinish() {
                     mp.stop();
+                    mp.release();
                     time.setText("Call ended");
                     finish();
                 }
@@ -82,6 +83,7 @@ public class OutgoingActivity extends AppCompatActivity {
                 public void onClick(View v) {
                     timer.cancel();
                     mp.stop();
+                    mp.release();
                     time.setText("Call ended");
                     finish();
                 }
