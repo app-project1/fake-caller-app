@@ -10,9 +10,6 @@ public class Contact extends ParseObject {
     public static final String KEY_CONTACT_NAME = "contactName";
     public static final String KEY_PHONE_NUMBER = "phoneNumber";
     public static final String KEY_AUDIO_FILE = "audioFile";
-    /*
-     I took out the duration variable since we can get it directly from the audio file. -JL
-     */
 
     public String getContactName() {
         return getString(KEY_CONTACT_NAME);
