@@ -30,10 +30,10 @@ A Fake Caller App creates fake calls that might be helpful in dangerous situatio
 - [x] User can view a list of contacts.
 - [x] User can make a fake call to one contact and view "Calling" screen.
 - [ ] User can switch to an emergency activity that makes real call to emergency number.
-- [ ] User can schedule an incoming phone call.
 
 **Optional Nice-to-have Stories**
 
+- [ ] User can schedule an incoming phone call.
 - [ ] User can add a list of contacts of their choice.
 - [ ] User can make customized fake calls to different contacts.
 - [ ] User can even fake Facetime.
