@@ -6,12 +6,16 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.CircleCrop;
 
 import org.parceler.Parcels;
 
@@ -73,18 +77,32 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ViewHold
 
         private TextView tvContact;
         private RelativeLayout container;
+        private ImageView ivSmallProfile;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             tvContact = itemView.findViewById(R.id.tvContact);
             container = itemView.findViewById(R.id.container);
+            ivSmallProfile = itemView.findViewById(R.id.ivSmallProfile);
         }
 
         public void bind(Contact contact) {
             // Bind the contact name to the view element
             tvContact.setText(contact.getContactName());
 
-            // 1. Register the click listener on the whole row
+            /*
+            Use Glide to load an image into the ImageView
+            (currently set to a default profile image, can change to load from Parse Backend later)
+            and crop the image into a circle
+            */
+            Glide.with(itemView.getContext())
+                    .load("https://www.pngkey.com/png/detail/115-1150152_default-profile-picture-avatar-png-green.png")
+                    .placeholder(R.drawable.profilepic_default)
+                    .fitCenter()
+                    .transform(new CircleCrop())
+                    .into(ivSmallProfile);
+
+            // Register the click listener on the whole row
             container.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

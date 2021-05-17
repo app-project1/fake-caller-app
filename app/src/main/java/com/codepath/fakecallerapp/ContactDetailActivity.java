@@ -10,6 +10,9 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.CircleCrop;
+
 import org.parceler.Parcels;
 
 /*
@@ -34,6 +37,18 @@ public class ContactDetailActivity extends AppCompatActivity {
         ivProfilePic = findViewById(R.id.ivProfilePic);
         btnCall = findViewById(R.id.btnCall);
         btnText = findViewById(R.id.btnText);
+
+        /*
+         Use Glide to load an image into the ImageView
+         (currently set to a default profile image, can change to load from Parse Backend later)
+         and crop the image into a circle
+         */
+        Glide.with(this)
+                .load("https://www.pngkey.com/png/detail/115-1150152_default-profile-picture-avatar-png-green.png")
+                .placeholder(R.drawable.profilepic_default)
+                .fitCenter()
+                .transform(new CircleCrop())
+                .into(ivProfilePic);
 
         Contact contact = Parcels.unwrap(getIntent().getParcelableExtra("contact"));
         tvContactName.setText(contact.getContactName());
