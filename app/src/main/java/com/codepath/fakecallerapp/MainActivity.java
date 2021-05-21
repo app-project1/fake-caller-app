@@ -1,9 +1,13 @@
 package com.codepath.fakecallerapp;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.View;
+import android.widget.Button;
 import android.widget.SearchView;
 
 import androidx.appcompat.app.ActionBar;
@@ -12,6 +16,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseQuery;
@@ -30,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
     protected List<Contact> allContacts;
     protected ContactAdapter contactAdapter;
     protected SearchView searchView;
+    private FloatingActionButton btnEmergency;
 
     public MainActivity() {
         // Required empty public constructor
@@ -47,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
         rvContacts = findViewById(R.id.rvContacts);
         allContacts = new ArrayList<>();
         swipeContainer = findViewById(R.id.swipeContainer);
+        btnEmergency = findViewById(R.id.btnEmergency);
 
         // Initialize an adapter
         contactAdapter = new ContactAdapter(this, allContacts);
@@ -76,6 +83,23 @@ public class MainActivity extends AppCompatActivity {
                 android.R.color.holo_green_light,
                 android.R.color.holo_orange_light,
                 android.R.color.holo_red_light);
+
+        btnEmergency.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view) {
+                dialPhoneNumber("911");
+            }
+
+        });
+    }
+
+    private void dialPhoneNumber(String phoneNumber) {
+        Intent intent = new Intent(Intent.ACTION_DIAL);
+        intent.setData(Uri.parse("tel:" + phoneNumber));
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
+        }
     }
 
     @Override
