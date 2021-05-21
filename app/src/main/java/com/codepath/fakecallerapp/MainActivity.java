@@ -88,12 +88,13 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                dialPhoneNumber("911");
+                dialPhoneNumber("911"); // set default emergency number
             }
 
         });
     }
 
+    // link to built-in phone
     private void dialPhoneNumber(String phoneNumber) {
         Intent intent = new Intent(Intent.ACTION_DIAL);
         intent.setData(Uri.parse("tel:" + phoneNumber));
