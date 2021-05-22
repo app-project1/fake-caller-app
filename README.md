@@ -29,7 +29,7 @@ A Fake Caller App creates fake calls that might be helpful in dangerous situatio
 
 - [x] User can view a list of contacts.
 - [x] User can make a fake call to one contact and view "Calling" screen.
-- [ ] User can switch to an emergency activity that makes real call to emergency number.
+- [x] User can switch to an emergency activity that makes real call to emergency number.
 
 **Optional Nice-to-have Stories**
 
@@ -173,5 +173,6 @@ A Fake Caller App creates fake calls that might be helpful in dangerous situatio
 <img src="Week2.gif" width=250>
 
 ### Sprint 3
+<img src="Week3.gif" width=250>
 
 ### Sprint 4
