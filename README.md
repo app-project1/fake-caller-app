@@ -36,7 +36,7 @@ A Fake Caller App creates fake calls that might be helpful in dangerous situatio
 - [ ] User can schedule an incoming phone call.
 - [ ] User can view a transcript of the phone call.
 - [ ] User can add a list of contacts of their choice.
-- [ ] User can make customized fake calls to different contacts.
+- [x] User can make customized fake calls to different contacts.
 - [ ] User can even fake Facetime.
 - [x] User can use the search bar to find contacts.
 
