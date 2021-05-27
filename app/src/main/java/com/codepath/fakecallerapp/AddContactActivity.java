@@ -33,7 +33,7 @@ public class AddContactActivity extends AppCompatActivity {
             etPhone = findViewById(R.id.etPhone);
             btnAddContact = findViewById(R.id.btnAddContact);
 
-            // on below line we are adding on click listener for our button.
+            // adding on click listener for add contact button
             btnAddContact.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -47,7 +47,6 @@ public class AddContactActivity extends AppCompatActivity {
                         Toast.makeText(AddContactActivity.this,
                                 "Please enter contact name and phone number", Toast.LENGTH_SHORT).show();
                     } else {
-                        // calling a method to add contact.
                         addContact(name, phone);
                     }
                 }
