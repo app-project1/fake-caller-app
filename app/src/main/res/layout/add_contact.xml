@@ -17,6 +17,7 @@
         android:drawableStart="@drawable/ic_baseline_person_black_24"
         android:drawableLeft="@drawable/ic_baseline_person_black_24"
         android:drawablePadding="5dp"
+        android:fontFamily="sans-serif-light"
         android:hint="Full name"
         android:inputType="text" />
 
@@ -29,6 +30,7 @@
         android:drawableStart="@drawable/ic_baseline_call_24"
         android:drawableLeft="@drawable/ic_baseline_call_24"
         android:drawablePadding="5dp"
+        android:fontFamily="sans-serif-light"
         android:hint="Phone"
         android:inputType="phone" />
 
@@ -38,7 +40,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
+        android:fontFamily="sans-serif-light"
         android:text="Save Contact"
-        android:textAllCaps="false" />
+        android:textAllCaps="false"
+        android:textStyle="bold" />
 
 </LinearLayout>

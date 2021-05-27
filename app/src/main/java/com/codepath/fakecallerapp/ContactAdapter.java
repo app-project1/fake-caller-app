@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -106,8 +105,7 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ViewHold
             container.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(context, contact.getContactName(), Toast.LENGTH_SHORT).show();
-                    // 2. Navigate to a new activity on tap
+                    // Navigate to a new activity on tap
                     Intent i = new Intent(context, ContactDetailActivity.class);
                     i.putExtra("contact", Parcels.wrap(contact));
                     context.startActivity(i);
