@@ -6,16 +6,23 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.SearchView;
+import android.widget.TextView;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.parse.FindCallback;
 import com.parse.ParseException;
@@ -35,7 +42,10 @@ public class MainActivity extends AppCompatActivity {
     protected List<Contact> allContacts;
     protected ContactAdapter contactAdapter;
     protected SearchView searchView;
+//    protected Button btnAddContact;
     private FloatingActionButton btnEmergency;
+    private BottomNavigationView bottomNavigationView;
+    final FragmentManager fragmentManager = getSupportFragmentManager();
 
     public MainActivity() {
         // Required empty public constructor
@@ -54,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
         allContacts = new ArrayList<>();
         swipeContainer = findViewById(R.id.swipeContainer);
         btnEmergency = findViewById(R.id.btnEmergency);
-
+        
         // Initialize an adapter
         contactAdapter = new ContactAdapter(this, allContacts);
         // Set the adapter on the recycler view
@@ -85,7 +95,6 @@ public class MainActivity extends AppCompatActivity {
                 android.R.color.holo_red_light);
 
         btnEmergency.setOnClickListener(new View.OnClickListener(){
-
             @Override
             public void onClick(View view) {
                 dialPhoneNumber("911"); // set default emergency number
@@ -107,6 +116,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_options, menu);
+
         searchView = (SearchView) menu.findItem(R.id.search_bar).getActionView();
         // Set up search bar functionality
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -121,8 +131,24 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
+
         return true;
     }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.btn_addContact:
+                Log.i(TAG, "onClick add contact button");
+                Intent i = new Intent(this, AddContactActivity.class);
+                this.startActivity(i);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
 
     // filters contacts that match the search bar query
     private void filter(String newText) {

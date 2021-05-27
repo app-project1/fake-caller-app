@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".AddContactActivity">
+
+    <!--edit text for user name-->
+
+    <EditText
+        android:id="@+id/etName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:drawableStart="@drawable/ic_baseline_person_black_24"
+        android:drawableLeft="@drawable/ic_baseline_person_black_24"
+        android:drawablePadding="5dp"
+        android:hint="Full name"
+        android:inputType="text" />
+
+    <!--edit text for user phone number-->
+    <EditText
+        android:id="@+id/etPhone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:drawableStart="@drawable/ic_baseline_call_24"
+        android:drawableLeft="@drawable/ic_baseline_call_24"
+        android:drawablePadding="5dp"
+        android:hint="Phone"
+        android:inputType="phone" />
+
+    <!--button for saving a new contact-->
+    <Button
+        android:id="@+id/btnAddContact"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="Save Contact"
+        android:textAllCaps="false" />
+
+</LinearLayout>
