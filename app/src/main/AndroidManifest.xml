@@ -17,6 +17,7 @@
         android:theme="@style/Theme.FakeCallerApp">
         <activity android:name=".ContactDetailActivity"></activity>
         <activity android:name=".OutgoingActivity"></activity>
+        <activity android:name=".IncomingActivity"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".IncomingActivity">
+
+    <TextView
+        android:id="@+id/tvName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:fontFamily="sans-serif-light"
+        android:textAlignment="center"
+        android:textSize="30dp"
+        tools:text="Contact Name" />
+
+    <TextView
+        android:id="@+id/tvIncoming"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-light"
+        android:text="Incoming Call..."
+        android:textAlignment="center"
+        android:textSize="20dp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="475dp">
+
+        <Button
+            android:id="@+id/btnDecline"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="60dp"
+            android:background="@drawable/round_button_red"
+            android:drawableTint="@color/white"
+            android:insetLeft="0dp"
+            android:insetTop="5dp"
+            android:insetRight="5dp"
+            android:insetBottom="5dp"
+            app:backgroundTint="@color/light_red"
+            app:icon="@drawable/ic_baseline_call_end_24"
+            app:iconSize="30dp"
+            app:iconTint="#FFFFFF"
+            app:strokeColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/btnAccept"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="60dp"
+            android:background="@drawable/round_button_green"
+            android:drawableTint="#FFFFFF"
+            android:insetLeft="0dp"
+            android:insetTop="5dp"
+            android:insetRight="5dp"
+            android:insetBottom="5dp"
+            app:backgroundTint="@color/light_green"
+            app:icon="@drawable/ic_baseline_call_24"
+            app:iconSize="30dp"
+            app:iconTint="#FFFFFF"
+            app:strokeColor="#FFFFFF" />
+    </RelativeLayout>
+
+</LinearLayout>

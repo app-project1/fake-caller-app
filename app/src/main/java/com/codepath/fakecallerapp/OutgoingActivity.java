@@ -32,7 +32,7 @@ public class OutgoingActivity extends AppCompatActivity {
         setContentView(R.layout.activity_outgoing);
         name = findViewById(R.id.tvName);
         time = findViewById(R.id.tvTime);
-        btnEndCall = findViewById(R.id.rButton);
+        btnEndCall = findViewById(R.id.btnDecline);
 
         // don't show action bar here
         getSupportActionBar().hide();

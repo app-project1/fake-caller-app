@@ -1,5 +1,6 @@
 package com.codepath.fakecallerapp;
 
+import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -7,6 +8,7 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.TimePicker;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -15,17 +17,25 @@ import com.bumptech.glide.load.resource.bitmap.CircleCrop;
 
 import org.parceler.Parcels;
 
+import java.time.LocalTime;
+import java.time.temporal.ChronoUnit;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
+
 /*
 This class is the detail activity that will show up when we click on each row in the contact list activity
 This class should hold information of the contact: contact name, phone number, option to make the call...
  */
-public class ContactDetailActivity extends AppCompatActivity {
+public class ContactDetailActivity extends AppCompatActivity implements TimePickerDialog.OnTimeSetListener {
     public static final String TAG = "ContactDetailActivity";
     private TextView tvContactName;
     private TextView tvPhoneNum;
     private ImageView ivProfilePic;
     private ImageButton btnCall;
     private ImageButton btnText;
+    private ImageButton btnSchedule;
+    private Contact contact;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +47,7 @@ public class ContactDetailActivity extends AppCompatActivity {
         ivProfilePic = findViewById(R.id.ivProfilePic);
         btnCall = findViewById(R.id.btnCall);
         btnText = findViewById(R.id.btnText);
+        btnSchedule = findViewById(R.id.btnSchedule);
 
         /*
          Use Glide to load an image into the ImageView
@@ -50,7 +61,7 @@ public class ContactDetailActivity extends AppCompatActivity {
                 .transform(new CircleCrop())
                 .into(ivProfilePic);
 
-        Contact contact = Parcels.unwrap(getIntent().getParcelableExtra("contact"));
+        contact = Parcels.unwrap(getIntent().getParcelableExtra("contact"));
         tvContactName.setText(contact.getContactName());
         tvPhoneNum.setText(contact.getPhoneNumber());
         /*
@@ -67,5 +78,35 @@ public class ContactDetailActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        // go to scheduling dialog to set a time
+        btnSchedule.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SchedulingDialogFragment schedulingDialogFragment = new SchedulingDialogFragment();
+                schedulingDialogFragment.show(getSupportFragmentManager(), "Scheduler");
+            }
+        });
+    }
+
+    // get the time selected from the Scheduling dialog and start the call at that time
+    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+        Log.i(TAG, "Time set: " + hourOfDay + ":" + minute);
+
+        long delay = ChronoUnit.MILLIS.between(LocalTime.now(), LocalTime.of(hourOfDay, minute, 0));
+        ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
+        scheduler.schedule(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Intent intent = new Intent(ContactDetailActivity.this, IncomingActivity.class);
+                    intent.putExtra("contact", contact);
+                    startActivity(intent);
+                } catch (Exception e) {
+                    Log.e(TAG, "Scheduled call error");
+                    e.printStackTrace();
+                }
+            }
+        }, delay, TimeUnit.MILLISECONDS);
     }
 }
