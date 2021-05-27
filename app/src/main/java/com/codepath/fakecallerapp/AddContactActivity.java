@@ -51,7 +51,6 @@ public class AddContactActivity extends AppCompatActivity {
                     }
                 }
             });
-
         }
 
     private void addContact(String name, String phone) {
