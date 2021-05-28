@@ -34,13 +34,21 @@
         android:hint="Phone"
         android:inputType="phone" />
 
+    <Spinner
+        android:id="@+id/gender"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:background="@android:drawable/btn_dropdown"
+        android:spinnerMode="dropdown" />
+
     <!--button for saving a new contact-->
     <Button
         android:id="@+id/btnAddContact"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:fontFamily="sans-serif-light"
+        android:fontFamily="sans-serif-medium"
         android:text="Save Contact"
         android:textAllCaps="false"
         android:textStyle="bold" />

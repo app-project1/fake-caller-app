@@ -42,10 +42,7 @@ public class MainActivity extends AppCompatActivity {
     protected List<Contact> allContacts;
     protected ContactAdapter contactAdapter;
     protected SearchView searchView;
-//    protected Button btnAddContact;
     private FloatingActionButton btnEmergency;
-    private BottomNavigationView bottomNavigationView;
-    final FragmentManager fragmentManager = getSupportFragmentManager();
 
     public MainActivity() {
         // Required empty public constructor

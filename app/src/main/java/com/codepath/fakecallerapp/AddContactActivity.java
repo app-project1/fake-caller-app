@@ -1,28 +1,30 @@
 package com.codepath.fakecallerapp;
 import android.app.Activity;
-import android.content.ComponentName;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.parse.ParseException;
-import com.parse.ParseFile;
-import com.parse.ParseObject;
 import com.parse.SaveCallback;
 
-public class AddContactActivity extends AppCompatActivity {
+public class AddContactActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     private EditText etName, etPhone;
     private Button btnAddContact;
     public static final String TAG = "AddContactActivity";
+    private Spinner genderSpinner;
+    private static final String[] paths = {"Gender", "Female", "Male"};
 
     @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +34,7 @@ public class AddContactActivity extends AppCompatActivity {
             etName = findViewById(R.id.etName);
             etPhone = findViewById(R.id.etPhone);
             btnAddContact = findViewById(R.id.btnAddContact);
+            genderSpinner = (Spinner)findViewById(R.id.gender);
 
             // adding on click listener for add contact button
             btnAddContact.setOnClickListener(new View.OnClickListener() {
@@ -47,18 +50,25 @@ public class AddContactActivity extends AppCompatActivity {
                         Toast.makeText(AddContactActivity.this,
                                 "Please enter contact name and phone number", Toast.LENGTH_SHORT).show();
                     } else {
-                        addContact(name, phone);
+                        saveContact(name, phone);
                     }
                 }
             });
+
+            ArrayAdapter<String> adapter = new ArrayAdapter<String>(AddContactActivity.this,
+                    android.R.layout.simple_spinner_item, paths);
+
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            genderSpinner.setAdapter(adapter);
+            genderSpinner.setOnItemSelectedListener(this);
         }
 
-    private void addContact(String name, String phone) {
+    private void saveContact(String name, String phone) {
         // Configure Query
         Contact newContact = new Contact();
-        newContact.put("contactName", name);
+        newContact.setContactName(name);
         try {
-            newContact.put("phoneNumber", Integer.parseInt(phone));
+            newContact.setPhoneNumber(Integer.parseInt(phone));
         } catch(NumberFormatException e) {
             System.out.println("Could not parse " + e);
         }
@@ -97,4 +107,29 @@ public class AddContactActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View v, int position, long id) {
+        switch (position) {
+            case 0:
+                
+                break;
+            case 1:
+                // Whatever you want to happen when the second item gets selected
+                break;
+            case 2:
+                // Whatever you want to happen when the thrid item gets selected
+                break;
+
+        }
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+        // TODO Auto-generated method stub
+    }
+
+    @Override
+    public void onPointerCaptureChanged(boolean hasCapture) {
+
+    }
 }
