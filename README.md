@@ -33,11 +33,11 @@ A Fake Caller App creates fake calls that might be helpful in dangerous situatio
 
 **Optional Nice-to-have Stories**
 
-- [ ] User can schedule an incoming phone call.
+- [x] User can schedule an incoming phone call.
 - [ ] User can view a transcript of the phone call.
-- [ ] User can add a list of contacts of their choice.
+- [x] User can add a list of contacts of their choice.
 - [x] User can make customized fake calls to different contacts.
-- [ ] User can even fake Facetime.
+- [ ] User can even fake FaceTime.
 - [x] User can use the search bar to find contacts.
 
 ### 2. Screen Archetypes
@@ -176,3 +176,4 @@ A Fake Caller App creates fake calls that might be helpful in dangerous situatio
 <img src="Week3.gif" width=250>
 
 ### Sprint 4
+<img src="Week4.gif" width=250>
