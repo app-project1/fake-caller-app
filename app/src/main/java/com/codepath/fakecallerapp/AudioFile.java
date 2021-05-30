@@ -11,39 +11,41 @@ import com.parse.ParseQuery;
 
 @ParseClassName("FakeAudio")
 public class AudioFile extends Contact{
-    ParseFile[] audio;
+    ParseFile audio;
 
-    public AudioFile(){
-        this.audio = new ParseFile[2];
-        inflateAudioFile();
-    }
+    public AudioFile(){}
 
-    public void inflateAudioFile() {
+    public ParseFile inflateAudioFile(String gender) {
         ParseQuery<ParseObject> query = ParseQuery.getQuery("FakeAudio");
+        if (gender.equals("Female")) {
             // query female audio
             query.whereEqualTo("objectId", "PJHwt7OGWl");
             query.getFirstInBackground(new GetCallback<ParseObject>() {
                 @Override
                 public void done(ParseObject contact, ParseException e) {
                     if (e == null) {
-                        audio[0] = contact.getParseFile("audioFile");
+                        audio = contact.getParseFile("audioFile");
                     } else {
                         Log.d("AudioFile", "Error getting female audio file");
                     }
                 }
             });
+        }
 
+        if (gender.equals("Male")) {
             // query male audio
             query.whereEqualTo("objectId", "EwrSistsE9");
             query.getFirstInBackground(new GetCallback<ParseObject>() {
                 @Override
                 public void done(ParseObject contact, ParseException e) {
                     if (e == null) {
-                        audio[1] = contact.getParseFile("audioFile");
+                        audio = contact.getParseFile("audioFile");
                     } else {
                         Log.d("AudioFile", "Error getting male audio file");
                     }
                 }
             });
+        }
+        return audio;
     }
 }

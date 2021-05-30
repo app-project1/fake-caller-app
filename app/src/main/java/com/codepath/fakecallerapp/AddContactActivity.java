@@ -34,13 +34,17 @@ public class AddContactActivity extends AppCompatActivity implements AdapterView
             etName = findViewById(R.id.etName);
             etPhone = findViewById(R.id.etPhone);
             btnAddContact = findViewById(R.id.btnAddContact);
-            genderSpinner = (Spinner)findViewById(R.id.gender);
+//            genderSpinner = (Spinner)findViewById(R.id.gender);
+//            ArrayAdapter<String> adapter = new ArrayAdapter<String>(AddContactActivity.this,
+//                android.R.layout.simple_spinner_item, paths);
+//            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//            genderSpinner.setAdapter(adapter);
+//            genderSpinner.setOnItemSelectedListener(this);
 
             // adding on click listener for add contact button
             btnAddContact.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
                     // get text from our edit text fields
                     String name = etName.getText().toString();
                     String phone = etPhone.getText().toString();
@@ -48,20 +52,64 @@ public class AddContactActivity extends AppCompatActivity implements AdapterView
                     // check validation: email can be left blank
                     if (TextUtils.isEmpty(name) || TextUtils.isEmpty(phone)) {
                         Toast.makeText(AddContactActivity.this,
-                                "Please enter contact name and phone number", Toast.LENGTH_SHORT).show();
+                                "Please enter all fields", Toast.LENGTH_SHORT).show();
                     } else {
+                        Log.i(TAG, "New Contact: " + name + "， " + phone);
                         saveContact(name, phone);
                     }
                 }
+//                public void onClick(View v) {
+//
+//                    // get text from our edit text fields
+//                    String name = etName.getText().toString();
+//                    String phone = etPhone.getText().toString();
+////                    String gender = null;
+//
+//                    // check validation: email can be left blank
+//                    if (TextUtils.isEmpty(name) || TextUtils.isEmpty(phone) ||
+//                            (genderSpinner == null && genderSpinner.getSelectedItem().toString() == null)
+//                            || (genderSpinner != null && (genderSpinner.getSelectedItem().toString()).equals("Gender"))) {
+//                        Toast.makeText(AddContactActivity.this,
+//                                "Please enter all fields", Toast.LENGTH_SHORT).show();
+//                    } else {
+//                        Log.i(TAG, "New Contact: " + name + "， " + phone);
+////                        Log.i(TAG, "New Contact: " + name + "， " + phone + ", " + gender);
+////                        gender = genderSpinner.getSelectedItem().toString();
+////                        saveContact(name, phone, gender);
+//                        saveContact(name, phone);
+////                        adapter.notifyDataSetChanged();
+//                    }
+//                }
             });
-
-            ArrayAdapter<String> adapter = new ArrayAdapter<String>(AddContactActivity.this,
-                    android.R.layout.simple_spinner_item, paths);
-
-            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-            genderSpinner.setAdapter(adapter);
-            genderSpinner.setOnItemSelectedListener(this);
         }
+
+//    private void saveContact(String name, String phone, String gender) {
+//        // Configure Query
+//        Contact newContact = new Contact();
+//        newContact.setContactName(name);
+//        try {
+//            newContact.setPhoneNumber(Integer.parseInt(phone));
+//        } catch(NumberFormatException e) {
+//            Toast.makeText(AddContactActivity.this, "Invalid phone number!", Toast.LENGTH_SHORT).show();
+//            System.out.println("Could not parse " + e);
+//        }
+//        newContact.setAudioFile(gender);
+//        // Saving object
+//        newContact.saveInBackground(new SaveCallback() {
+//            @Override
+//            public void done(ParseException e) {
+//                if (e == null) {
+//                    Log.i(TAG, "Contact added successfully");
+//                    Toast.makeText(AddContactActivity.this, "Contact added successfully!", Toast.LENGTH_SHORT).show();
+//                    Intent i = new Intent(AddContactActivity.this, MainActivity.class);
+//                    startActivity(i);
+//                } else {
+//                    Log.e(TAG, "Error while adding", e);
+//                    Toast.makeText(AddContactActivity.this, "Error while saving!", Toast.LENGTH_SHORT).show();
+//                }
+//            }
+//        });
+//    }
 
     private void saveContact(String name, String phone) {
         // Configure Query
@@ -70,6 +118,7 @@ public class AddContactActivity extends AppCompatActivity implements AdapterView
         try {
             newContact.setPhoneNumber(Integer.parseInt(phone));
         } catch(NumberFormatException e) {
+            Toast.makeText(AddContactActivity.this, "Invalid phone number!", Toast.LENGTH_SHORT).show();
             System.out.println("Could not parse " + e);
         }
 
@@ -79,6 +128,7 @@ public class AddContactActivity extends AppCompatActivity implements AdapterView
             public void done(ParseException e) {
                 if (e == null) {
                     Log.i(TAG, "Contact added successfully");
+                    Toast.makeText(AddContactActivity.this, "Contact added successfully!", Toast.LENGTH_SHORT).show();
                     Intent i = new Intent(AddContactActivity.this, MainActivity.class);
                     startActivity(i);
                 } else {
@@ -110,8 +160,8 @@ public class AddContactActivity extends AppCompatActivity implements AdapterView
     @Override
     public void onItemSelected(AdapterView<?> parent, View v, int position, long id) {
         switch (position) {
+            default:
             case 0:
-                
                 break;
             case 1:
                 // Whatever you want to happen when the second item gets selected
@@ -125,7 +175,7 @@ public class AddContactActivity extends AppCompatActivity implements AdapterView
 
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
-        // TODO Auto-generated method stub
+        Toast.makeText(this, "Please specify gender for your fake caller", Toast.LENGTH_SHORT).show();
     }
 
     @Override
