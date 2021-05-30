@@ -2,7 +2,7 @@
     <!-- Base application theme. -->
     <style name="Theme.FakeCallerApp" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">#689F38</item>
+        <item name="colorPrimary">#4CAF50</item>
         <item name="colorPrimaryVariant">#388E3C</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->

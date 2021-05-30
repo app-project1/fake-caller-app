@@ -47,7 +47,7 @@
             android:insetTop="5dp"
             android:insetRight="5dp"
             android:insetBottom="5dp"
-            app:backgroundTint="@color/light_green"
+            app:backgroundTint="#AED581"
             app:icon="@android:drawable/stat_notify_call_mute"
             app:iconSize="30dp"
             app:iconTint="#FFFFFF" />
@@ -63,7 +63,7 @@
             android:insetTop="5dp"
             android:insetRight="5dp"
             android:insetBottom="5dp"
-            app:backgroundTint="@color/light_green"
+            app:backgroundTint="#AED581"
             app:icon="@drawable/ic_baseline_dialpad_24"
             app:iconSize="30dp"
             app:iconTint="#FFFFFF" />
@@ -81,7 +81,7 @@
             android:insetTop="5dp"
             android:insetRight="5dp"
             android:insetBottom="5dp"
-            app:backgroundTint="@color/light_green"
+            app:backgroundTint="#AED581"
             app:icon="@drawable/ic_baseline_speaker_phone_24"
             app:iconSize="30dp"
             app:iconTint="#FFFFFF" />
@@ -106,7 +106,7 @@
             android:insetTop="5dp"
             android:insetRight="5dp"
             android:insetBottom="5dp"
-            app:backgroundTint="@color/light_green"
+            app:backgroundTint="#AED581"
             app:icon="@drawable/ic_baseline_add_ic_call_24"
             app:iconSize="30dp"
             app:iconTint="#FFFFFF" />
@@ -123,7 +123,7 @@
             android:insetTop="5dp"
             android:insetRight="5dp"
             android:insetBottom="5dp"
-            app:backgroundTint="@color/light_green"
+            app:backgroundTint="#AED581"
             app:icon="@drawable/ic_baseline_video_call_24"
             app:iconSize="35dp"
             app:iconTint="#FFFFFF" />
@@ -141,7 +141,7 @@
             android:insetTop="5dp"
             android:insetRight="5dp"
             android:insetBottom="5dp"
-            app:backgroundTint="@color/light_green"
+            app:backgroundTint="#AED581"
             app:icon="@drawable/ic_baseline_contacts_24"
             app:iconSize="30dp"
             app:iconTint="#FFFFFF" />

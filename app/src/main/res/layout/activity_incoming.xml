@@ -64,7 +64,7 @@
             android:insetTop="5dp"
             android:insetRight="5dp"
             android:insetBottom="5dp"
-            app:backgroundTint="@color/light_green"
+            app:backgroundTint="#AED581"
             app:icon="@drawable/ic_baseline_call_24"
             app:iconSize="30dp"
             app:iconTint="#FFFFFF"
