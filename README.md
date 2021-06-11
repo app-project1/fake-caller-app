@@ -1,7 +1,5 @@
-Original App Design Project - README Template
+Fake Caller App
 ===
-
-# Fake Caller App
 
 ## Table of Contents
 1. [Overview](#Overview)
