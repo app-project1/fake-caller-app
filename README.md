@@ -9,7 +9,8 @@ Fake Caller App
 
 ## Overview
 ### Description
-A Fake Caller App creates fake calls that might be helpful in dangerous situations during alone night-time walking home. 
+A Fake Caller App creates fake calls that might be helpful in dangerous situations during alone night-time walking home, utilizing Parse for backend (Back4App). 
+Used language: Java
 
 ### App Evaluation
 - **Category:** Utility app
